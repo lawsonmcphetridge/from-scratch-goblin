@@ -43,4 +43,15 @@ border: solid 2px white;
 text-align: center;
 align-items: center;
 justify-content: center;
+
+}
+
+
+.player-avatar {
+    font-size: 20rem;
+}
+
+.challenge-goblin {
+    height: 100px;
+    width: 300px;
 }
