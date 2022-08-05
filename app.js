@@ -30,6 +30,7 @@ goblinForm.addEventListener('submit', (e) => {
     const newGoblin = {
         name: goblinName,
         hp: 3,
+        emoji: '👺',
     };
     goblinsList.push(newGoblin);
 
@@ -43,7 +44,7 @@ goblinForm.addEventListener('submit', (e) => {
 
 function renderGoblin(goblin) {
     const goblinContainer = document.createElement('div');
-    goblinContainer.textContent = `I am ${goblin.name}  ${goblin.emoji} and i have ${goblin.hp} health left`;
+    goblinContainer.textContent = `I am ${goblin.name} ${goblin.emoji} and i have ${goblin.hp} health left`;
     goblinContainer.classList.add('goblin-style');
     return goblinContainer;
 }
