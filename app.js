@@ -57,33 +57,34 @@ function displayGoblins() {
     for (let goblin of goblinsList) {
         const goblinDiv = renderGoblin(goblin);
         goblinEl.append(goblinDiv);
+        if (goblin.hp > 0) {
+            goblinDiv.addEventListener('click', () => {
+                if (playerHp > 0 && goblin.hp > 0) {
+                    if (Math.random() > 0.5) {
+                        goblin.hp--;
+                        alert(`you hit ${goblin.name}`);
+                    } else {
+                        playerHp--;
+                        alert(`you missed the goblin! And the goblin hit you`);
+                    }
+                    if (goblin.hp === 0) {
+                        killedGoblins++;
+                        goblin.emoji = '💀';
+                    }
+                    if (playerHp === 0) {
+                        alert('the game is over!');
+                    }
 
-        goblinDiv.addEventListener('click', () => {
-            if (playerHp > 0 && goblin.hp > 0) {
-                if (Math.random() > 0.5) {
-                    goblin.hp--;
-                    alert(`you hit ${goblin.name}`);
-                } else {
-                    playerHp--;
-                    alert(`you missed the goblin! And the goblin hit you`);
-                }
-                if (goblin.hp === 0) {
-                    killedGoblins++;
-                    goblin.emoji = '💀';
-                }
-                if (playerHp === 0) {
-                    alert('the game is over!');
-                }
 
 
-
-                playerHpEl.textContent = `You have ${playerHp} hp`;
-                killedGoblinsEl.textContent = `You have killed ${killedGoblins} goblins`;
+                    playerHpEl.textContent = `You have ${playerHp} hp`;
+                    killedGoblinsEl.textContent = `You have killed ${killedGoblins} goblins`;
                 
 
-            }
-            displayGoblins();
-        });
+                }
+                displayGoblins();
+            });
+        }
         
     }
 
